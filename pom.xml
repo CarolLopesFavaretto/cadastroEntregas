@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.magalu</groupId>
-	<artifactId>cadastro.entrega</artifactId>
+	<artifactId>delivery</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>cadastro entrega</name>
 	<description>API para realizar cadastro de entregas </description>
