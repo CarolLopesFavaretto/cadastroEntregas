@@ -1,7 +1,7 @@
 package com.magalu.cadastro.entrega.endpoint;
 
-import com.magalu.cadastro.entrega.entity.Delivery;
 import com.magalu.cadastro.entrega.mapper.dto.DeliveryDTO;
+import com.magalu.cadastro.entrega.mapper.dto.DeliveryRequest;
 import com.magalu.cadastro.entrega.service.DeliveryService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +17,9 @@ public class DeliveryController {
         this.deliveryService = deliveryService;
     }
 
-    @PostMapping("/save")
-    public ResponseEntity<DeliveryDTO> save(@RequestBody @Valid Delivery delivery) {
-        return ResponseEntity.ok(deliveryService.save(delivery));
+    @PostMapping
+    public ResponseEntity<DeliveryDTO> save(@RequestBody @Valid DeliveryRequest request) {
+        return ResponseEntity.ok(deliveryService.save(request));
     }
 
     @GetMapping("/{id}")
@@ -27,14 +27,14 @@ public class DeliveryController {
         return ResponseEntity.ok(deliveryService.findById(id));
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         deliveryService.delete(id);
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<DeliveryDTO> update(@PathVariable Long id, @Valid @RequestBody Delivery delivery) {
-        return ResponseEntity.ok(deliveryService.update(id, delivery));
+    @PutMapping("/{id}")
+    public ResponseEntity<DeliveryDTO> update(@PathVariable Long id, @Valid @RequestBody DeliveryRequest request) {
+        return ResponseEntity.ok(deliveryService.update(id, request));
     }
 }

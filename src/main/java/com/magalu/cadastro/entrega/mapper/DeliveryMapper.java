@@ -2,6 +2,7 @@ package com.magalu.cadastro.entrega.mapper;
 
 import com.magalu.cadastro.entrega.entity.Delivery;
 import com.magalu.cadastro.entrega.mapper.dto.DeliveryDTO;
+import com.magalu.cadastro.entrega.mapper.dto.DeliveryRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -13,6 +14,6 @@ public interface DeliveryMapper {
 
     DeliveryDTO toDTO(Delivery delivery);
 
-    Delivery toEntity(DeliveryDTO deliveryDTO);
+    Delivery toEntity(DeliveryRequest request);
 
 }

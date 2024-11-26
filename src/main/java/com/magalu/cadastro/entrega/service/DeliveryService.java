@@ -4,6 +4,7 @@ import com.magalu.cadastro.entrega.entity.Delivery;
 import com.magalu.cadastro.entrega.exception.handler.DeliveryNotFoundException;
 import com.magalu.cadastro.entrega.mapper.DeliveryMapper;
 import com.magalu.cadastro.entrega.mapper.dto.DeliveryDTO;
+import com.magalu.cadastro.entrega.mapper.dto.DeliveryRequest;
 import com.magalu.cadastro.entrega.repository.DeliveryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,8 @@ public class DeliveryService {
     private DeliveryMapper mapper;
 
 
-    public DeliveryDTO save(Delivery delivery) {
+    public DeliveryDTO save(DeliveryRequest request) {
+        Delivery delivery = mapper.toEntity(request);
         return mapper.toDTO(deliveryRepository.save(delivery));
     }
 
@@ -34,12 +36,13 @@ public class DeliveryService {
         deliveryRepository.deleteById(id);
     }
 
-    public DeliveryDTO update(Long id, Delivery delivery) {
+    public DeliveryDTO update(Long id, DeliveryRequest request) {
         Optional<Delivery> existingDelivery = deliveryRepository.findById(id);
         if (existingDelivery.isPresent()) {
-            delivery.setId(id);
-            delivery = deliveryRepository.save(delivery);
-            return DeliveryMapper.INSTANCE.toDTO(delivery);
+            Delivery newDelivery = mapper.toEntity(request);
+            newDelivery.setId(id);
+            newDelivery = deliveryRepository.save(newDelivery);
+            return DeliveryMapper.INSTANCE.toDTO(newDelivery);
         } else {
             throw new DeliveryNotFoundException("Delivery not found with id " + id);
         }
