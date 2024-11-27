@@ -1,6 +1,7 @@
 package com.magalu.cadastro.entrega;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.magalu.cadastro.entrega.api.DeliveryApi;
 import com.magalu.cadastro.entrega.mapper.DeliveryMapper;
 import com.magalu.cadastro.entrega.mapper.dto.DeliveryDTO;
 import com.magalu.cadastro.entrega.mapper.dto.DeliveryRequest;
@@ -54,7 +55,7 @@ public class DeliveryControllerTest {
         Factory factory = new Factory();
         DeliveryRequest delivery = factory.createDelivery();
 
-        mvc.perform(MockMvcRequestBuilders.post("/delivery")
+        mvc.perform(MockMvcRequestBuilders.post("/v1/delivery")
                         .content(objectMapper.writeValueAsString(delivery))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
@@ -75,7 +76,7 @@ public class DeliveryControllerTest {
         DeliveryRequest delivery = factory.createDelivery();
         DeliveryDTO savedDelivery = service.save(delivery);
 
-        mvc.perform(MockMvcRequestBuilders.get("/delivery/" + savedDelivery.id())
+        mvc.perform(MockMvcRequestBuilders.get("/v1/delivery/" + savedDelivery.id())
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(mvcResult -> {
@@ -95,7 +96,7 @@ public class DeliveryControllerTest {
         DeliveryDTO savedDelivery = service.save(delivery);
         DeliveryRequest updateRequest = factory.updateDelivery();
 
-        mvc.perform(MockMvcRequestBuilders.put("/delivery/" + savedDelivery.id())
+        mvc.perform(MockMvcRequestBuilders.put("/v1/delivery/" + savedDelivery.id())
                         .content(objectMapper.writeValueAsString(updateRequest))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
@@ -116,11 +117,11 @@ public class DeliveryControllerTest {
         DeliveryRequest delivery = factory.createDelivery();
         DeliveryDTO savedDelivery = service.save(delivery);
 
-        mvc.perform(MockMvcRequestBuilders.delete("/delivery/" + savedDelivery.id())
+        mvc.perform(MockMvcRequestBuilders.delete("/v1/delivery/" + savedDelivery.id())
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());
 
-        mvc.perform(MockMvcRequestBuilders.get("/delivery/" + savedDelivery.id())
+        mvc.perform(MockMvcRequestBuilders.get("/v1/delivery/" + savedDelivery.id())
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
@@ -129,7 +130,7 @@ public class DeliveryControllerTest {
     public void shouldReturnNotFoundForNonExistentDelivery() throws Exception {
         Long nonExistentId = 999L;
 
-        mvc.perform(MockMvcRequestBuilders.get("/delivery/" + nonExistentId)
+        mvc.perform(MockMvcRequestBuilders.get("/v1/delivery/" + nonExistentId)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
@@ -139,7 +140,7 @@ public class DeliveryControllerTest {
         Long nonExistentId = 999L;
         DeliveryRequest updateRequest = new Factory().updateDelivery();
 
-        mvc.perform(MockMvcRequestBuilders.put("/delivery/" + nonExistentId)
+        mvc.perform(MockMvcRequestBuilders.put("/v1/delivery/" + nonExistentId)
                         .content(objectMapper.writeValueAsString(updateRequest))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
