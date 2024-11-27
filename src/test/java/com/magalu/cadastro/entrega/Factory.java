@@ -1,28 +1,69 @@
 package com.magalu.cadastro.entrega;
 
-import com.magalu.cadastro.entrega.entity.Address;
-import com.magalu.cadastro.entrega.entity.Delivery;
+import com.magalu.cadastro.entrega.mapper.dto.AddressDTO;
+import com.magalu.cadastro.entrega.mapper.dto.DeliveryRequest;
 
 import java.sql.Date;
 
 public class Factory {
 
-    public Delivery createDelivery() {
-        Delivery delivery = new Delivery();
-        delivery.setDeliveryDeadline(Date.valueOf("2023-12-31").toLocalDate());
-        delivery.setNameClient("John Doe");
-        delivery.setCpfClient("41246532808");
+    public DeliveryRequest createDelivery() {
+        AddressDTO address = new AddressDTO(
+                "0615010",
+                "SP",
+                "São Paulo",
+                "Centro",
+                "Rua A",
+                "123",
+                "Apto 1"
+        );
 
-        Address address = new Address();
-        address.setZipCode("0615010");
-        address.setUf("SP");
-        address.setCity("São Paulo");
-        address.setDistrict("Centro");
-        address.setStreet("Rua A");
-        address.setNumber("123");
-        address.setComplement("Apto 1");
+        DeliveryRequest delivery = new DeliveryRequest(
+                1,
+                Date.valueOf("2023-12-31").toLocalDate(),
+                "John Doe",
+                "41246532808",
+                address
+        );
 
-        delivery.setAddress(address);
         return delivery;
+    }
+
+    public DeliveryRequest updateDelivery() {
+        DeliveryRequest updateRequest = new DeliveryRequest(
+                1,
+                Date.valueOf("2024-11-25").toLocalDate(),
+                "John Doe",
+                "41246532808",
+                new AddressDTO(
+                        "0615010",
+                        "SP",
+                        "São Paulo",
+                        "Centro",
+                        "Rua B",
+                        "1234",
+                        "Apto 3"
+                )
+        );
+        return updateRequest;
+    }
+
+    public DeliveryRequest invalidRequest() {
+        DeliveryRequest invalidRequest = new DeliveryRequest(
+                1,
+                Date.valueOf("2024-11-25").toLocalDate(),
+                "John Doe",
+                "",
+                new AddressDTO(
+                        "0615010",
+                        "SP",
+                        "São Paulo",
+                        "Centro",
+                        "Rua B",
+                        "1234",
+                        "Apto 3"
+                )
+        );
+        return invalidRequest;
     }
 }
