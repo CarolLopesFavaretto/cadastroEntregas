@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "30833107-2917-43a4-9c3a-beada60a59d8",
+		"name": "Delivery - Magalu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16789706"
+	},
+	"item": [
+		{
+			"name": "find",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/delivery/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"delivery",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"quantityPackages\": 0,\n  \"deliveryDeadline\": \"2023-10-01\",\n  \"nameClient\": \"John Doe\",\n  \"cpfClient\": \"41246532808\",\n  \"address\": {\n    \"zipCode\": \"12345-678\",\n    \"uf\": \"SP\",\n    \"city\": \"São Paulo\",\n    \"district\": \"Centro\",\n    \"street\": \"Rua Exemplo\",\n    \"number\": \"123\",\n    \"complement\": \"Apto 456\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/delivery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"delivery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"quantityPackages\": 10,\n  \"deliveryDeadline\": \"2023-10-01\",\n  \"nameClient\": \"John Doe\",\n  \"cpfClient\": \"41246532808\",\n  \"address\": {\n    \"zipCode\": \"12345-678\",\n    \"uf\": \"SP\",\n    \"city\": \"São Paulo\",\n    \"district\": \"Centro\",\n    \"street\": \"Rua Exemplo\",\n    \"number\": \"123\",\n    \"complement\": \"Apto 456\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/delivery/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"delivery",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/delivery/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"delivery",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
