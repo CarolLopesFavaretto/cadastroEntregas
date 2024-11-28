@@ -227,6 +227,8 @@ Docker: Ferramenta de containerização que garante a portabilidade e consistên
 
 PostgreSQL: Banco de dados relacional escolhido pela sua robustez e suporte a operações complexas.
 
+Postman: Ferramenta utilizada para testar e documentar APIs.
+
 
 - Boas Práticas de Programação
 
