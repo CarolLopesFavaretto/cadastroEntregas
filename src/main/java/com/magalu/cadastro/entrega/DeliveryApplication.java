@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CadastroEntregaApplication {
+public class DeliveryApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CadastroEntregaApplication.class, args);
+		SpringApplication.run(DeliveryApplication.class, args);
 	}
 
 }
