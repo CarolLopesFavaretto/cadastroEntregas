@@ -1,7 +1,6 @@
 package com.magalu.cadastro.entrega;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.magalu.cadastro.entrega.api.DeliveryApi;
 import com.magalu.cadastro.entrega.mapper.DeliveryMapper;
 import com.magalu.cadastro.entrega.mapper.dto.DeliveryDTO;
 import com.magalu.cadastro.entrega.mapper.dto.DeliveryRequest;

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "delivery", description = "API de cadastro de entrega")
 public interface DeliveryApi {
 
-    @Operation(summary = "Cadastra uma entrega", description = "Cadastra uma entrega", tags = {"delivery"})
+    @Operation(summary = "Cadastrar uma entrega", description = "Cadastra uma entrega", tags = {"delivery"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Cadastro de entrega criada com sucesso",
                     content = @Content(schema = @Schema(implementation = DeliveryController.class))),
