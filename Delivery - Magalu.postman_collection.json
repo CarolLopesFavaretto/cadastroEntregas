@@ -83,15 +83,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/delivery/update/1",
+					"raw": "http://localhost:8080/v1/delivery/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"v1",
 						"delivery",
-						"update",
 						"1"
 					]
 				}
@@ -113,15 +113,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/delivery/2",
+					"raw": "http://localhost:8080/v1/delivery/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"v1",
 						"delivery",
-						"2"
+						"1"
 					]
 				}
 			},
